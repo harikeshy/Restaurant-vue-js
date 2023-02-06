@@ -25,19 +25,19 @@ export default {
         }
     },
     methods:{
-        async signUp()  // we use async and wait because some time api get late response
+        async signUp()  // we use async and await because some time api get late response
         {
-            console.warn("signup", this.name,this.email,this.password)
+            //console.warn("signup", this.name,this.email,this.password)
             let result = await axios.post("http://localhost:3000/users",{
                 "name":this.name,
                 "email":this.email,
                 "password":this.password
             });
             console.warn(result);
-            if(result.status==201)    // api shows status 201 when record save
+            if(result.status==201)    // api shows status 201 when record save in postman
             {
                 
-                localStorage.setItem("user-info",JSON.stringify(result.data))   // we store all data in local storage to check user alreay login
+                localStorage.setItem("user-info",JSON.stringify(result.data))   // we store all data in local storage to check user data exist for login
                 this.$router.push({name:'HomePage'})   // redirect to page
             }
             
@@ -45,7 +45,7 @@ export default {
     },
     mounted()
     {
-        let user = localStorage.getItem("user-info");
+        let user = localStorage.getItem("user-info");  // to check if use is already login
         if(user){
             this.$router.push({name:"HomePage"})
         }

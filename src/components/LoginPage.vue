@@ -25,8 +25,8 @@ export default {
         async login() {
             let result = await axios.get(
                 `http://localhost:3000/users?email=${this.email}&password=${this.password}`
-            );
-            if (result.status == 200 && result.data.length > 0) // api shows status 201 when record save
+            );   // we use this format because its mention in the api example
+            if (result.status == 200 && result.data.length > 0) // api shows status 200 when record get
             {
                 localStorage.setItem("user-info", JSON.stringify(result.data[0])) // we store all data in local storage to check user alreay login
                 this.$router.push({
@@ -37,7 +37,7 @@ export default {
         }
     },
     mounted() {
-        let user = localStorage.getItem("user-info");
+        let user = localStorage.getItem("user-info");   // to check if use is already login
         if (user) {
             this.$router.push({
                 name: "HomePage"

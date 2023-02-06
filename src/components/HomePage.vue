@@ -28,15 +28,16 @@ import axios from 'axios'
 import HeaderMenu from "./HeaderMenu.vue";
 export default {
     name: 'HomePage',
+      components: {
+        HeaderMenu
+    },
     data() {
         return {
             name: '',
             restaurants: []
         }
     },
-    components: {
-        HeaderMenu
-    },
+  
     methods: {
         async deleteRestaurant(id) {
             let result = await axios.delete("http://localhost:3000/restaurant/" + id);
@@ -59,7 +60,7 @@ export default {
             this.restaurants = result.data
         }
     },
-    mounted() {
+    mounted() {  // when page all loaded
         this.loadData()
     }
 }

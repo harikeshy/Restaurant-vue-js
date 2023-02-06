@@ -47,6 +47,7 @@ export default {
             })
         }
         //console.log(this.$route.params.id)
+        // Get data in input field already fillup
         const result = await axios.get("http://localhost:3000/restaurant/" + this.$route.params.id);
         this.restaurant = result.data
     }

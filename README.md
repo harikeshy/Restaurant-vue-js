@@ -1,5 +1,3 @@
-# resto-project
-
 ## Project setup
 ```
 npm install
@@ -22,3 +20,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Start Json server
+- First go into db folder with command line then run command
+- json-server --watch db.json

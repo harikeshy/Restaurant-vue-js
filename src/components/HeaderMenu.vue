@@ -11,7 +11,7 @@ export default {
     name:'HeaderMenu',
     methods: {
         logout() {
-            localStorage.clear()
+            localStorage.clear()   
             this.$router.push({name:'LoginPage'})
         }
     }
