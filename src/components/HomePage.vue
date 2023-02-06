@@ -40,9 +40,11 @@ export default {
   
     methods: {
         async deleteRestaurant(id) {
+            if(confirm("Are you sure to delete record?")) {
             let result = await axios.delete("http://localhost:3000/restaurant/" + id);
             if (result.status == 200) {
                 this.loadData()
+            }
             }
         },
         async loadData() {
